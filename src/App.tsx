@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Header} from './Header/header';
+import {NewsContent} from './NewsContent/NewsContent';
+import {useDispatch, useSelector} from "react-redux";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch()
+    // @ts-ignore
+    const cash = useSelector(state => state.cash)
+
+    const add = (cash: any) => {
+        dispatch({type: "ADD-MONY", payload: cash})
+    }
+
+    const rem = (cash: any) => {
+        dispatch({type: "REMOVE-MONY", payload: cash})
+    }
+
+
+    return (
+        <div className="App">
+            <Header/>
+            <NewsContent/>
+            <div>{cash}</div>
+            <button onClick={() => add(Number(prompt()))}>ADD</button>
+            <button onClick={() => rem(Number(prompt()))}>REMove</button>
+        </div>
+
+    );
 }
 
 export default App;

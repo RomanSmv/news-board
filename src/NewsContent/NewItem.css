@@ -1,0 +1,25 @@
+.MainBlock{
+    width: calc(50% - 17px);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #177fb0;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+}
+.CategoryBlock{
+    background-color: #ffdd22;
+    padding: 0 5px;
+    border-radius: 10px;
+    width: fit-content;
+}
+.TextBlock{
+    padding-top: 10px;
+}
+.TitleBlock{
+background-color: coral;
+}
+.DesBlock{
+
+}
